@@ -44,12 +44,11 @@ def equal_frequency_discretize(data, bins_nums=20, ratio=0.5, density=0.5, epoch
         return data
     else:
         df = pd.DataFrame(data)
-        # 在第一行添加标注，标记出被离散化的列
         discrete_continuous_info = ['discrete' if i in DisIdx else 'continuous' for i in range(n)]
         discrete_indices=[i for i, val in enumerate(discrete_continuous_info) if val == 'discrete']
-        df.loc[-1] = discrete_continuous_info  # 添加新的一行
-        df.index = df.index + 1  # 向下移动索引
-        df = df.sort_index()  # 重新排序索引
+        df.loc[-1] = discrete_continuous_info
+        df.index = df.index + 1
+        df = df.sort_index()
         filename = f'synthetic_mixed/synthetic_mixed_data_{density}_epoch{epoch}.csv'
         df = pd.DataFrame(data)
         df.to_csv(filename, index=False)
@@ -81,23 +80,23 @@ def Part2Discrete(data, bins_nums=20, ratio=0.5, density=0.5, epoch=1):
     else:
         filename = f'synthetic_discrete/generated_mixed_data_{density}_epoch{epoch}.csv'
 
-    # 将数据转换为DataFrame并保存为CSV文件
+
     df = pd.DataFrame(data)
     df.to_csv(filename, index=False)
     return data
 
 
 def generate_dag_with_density(num_nodes=10, density=0,epoch=None,multi=False):
-    # 创建一个有向图
+
     graph = nx.DiGraph()
     graph.add_nodes_from(range(num_nodes))
 
-    # 生成所有可能的边并随机打乱
+
     possible_edges = [(i, j) for i in range(num_nodes) for j in range(i + 1, num_nodes)]
     random.shuffle(possible_edges)
     # print(possible_edges)
 
-    # 计算需要添加的边的数量
+
     max_possible_edges = num_nodes * (num_nodes - 1) // 2
     num_edges_to_add = int(density * max_possible_edges)
     # print(num_edges_to_add)
@@ -115,9 +114,9 @@ def generate_dag_with_density(num_nodes=10, density=0,epoch=None,multi=False):
     adj_matrix = nx.to_numpy_array(graph)
     # print(adj_matrix)
 
-    # 将邻接矩阵转换为 pandas DataFrame
+
     df = pd.DataFrame(adj_matrix)
-    # 保存 DataFrame 为 CSV 文件
+
     if not multi:
         df.to_csv(f'./synthetic/adjacency_matrix{density}_epoch{epoch}.csv')
         # df.to_csv(f'./compare_data/adjacency_matrix')

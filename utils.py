@@ -84,12 +84,9 @@ def find_discrete_lable(dataset, discrete_indices=None):
 
 
 def read_discretized_data(filename):
-    # 读取CSV文件的第一行，用于标注离散化的列
     df = pd.read_csv(filename)
     discrete_info = df.iloc[0].tolist()
-    # 提取离散变量的索引
     discrete_indices = [i for i, val in enumerate(discrete_info) if val == 'discrete']
-    # 读取剩余数据
     data = df.drop(index=0).to_numpy(dtype=float)
     return data, discrete_indices
 
@@ -98,7 +95,6 @@ def random_indecs_generate(n, sizes):
     for i in range(20):
         for size in sizes:
             indices = np.random.choice(n, size, replace=False)
-            # 保存索引到文本文件
             np.savetxt(f"./indecs/synthetic_{size}_epoch{i}.txt", indices, fmt='%d')
 
 
