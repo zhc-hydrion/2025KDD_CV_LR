@@ -1,6 +1,6 @@
 ## Project Overview
 
-This project implements the NYM algorithm based on the `causallearn` package. Below is an overview of the directories and scripts included in this project:
+This project implements the CV_LR algorithm based on the `causallearn` package. Below is an overview of the directories and scripts included in this project:
 
 - **data/**: Contains the Sachs and Child real datasets.
 - **data_generate.py**: Used to generate synthetic data.
