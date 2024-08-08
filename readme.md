@@ -4,7 +4,7 @@ This project implements the CV_LR algorithm based on the `causallearn` package. 
 
 - **data/**: Contains the Sachs and Child real datasets.
 - **data_generate.py**: Used to generate synthetic data.
-- **GES.py**: Contains the implementation of various algorithms including CV and NYM.
+- **GES.py**: Contains the implementation of various algorithms including CV and CV_LR.
 - **main.py**: Used to conduct experiments. The following parameters can be specified:
   - `method`: Selects the method to use.
   - `dataset`: Chooses different datasets.
