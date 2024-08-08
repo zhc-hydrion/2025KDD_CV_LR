@@ -205,7 +205,6 @@ def run_experiment(log_file, m, graph_density, sample_size, epoch, dataset, numb
     for j in range(epoch):
         if generetae is True:
             if dataset.startswith('synthetic'):
-                # 虚拟数据生成
                 generate_synthetic_data(number_var, graph_density, j)
             elif dataset == 'multi_synthetic':
                 generate_synthetic_data_multi(number_var, graph_density, j, dmax=multi_dmax)

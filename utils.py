@@ -16,7 +16,7 @@ def initialize_general_graph_from_file(file_path):
     nodes = [GraphNode(name) for name in nodes_names]
 
     for i, line in enumerate(lines):
-        if line.strip().startswith('Graph Edges:'):  # 根据具体的起始描述来定位
+        if line.strip().startswith('Graph Edges:'):
             start_index = i + 1
 
             break

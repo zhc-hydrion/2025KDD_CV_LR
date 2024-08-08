@@ -226,7 +226,6 @@ def generate_data_from_graph_multi(graph, num_samples=500, trail=10000, dmax=5):
             print('ok')
             columns = []
             for i, (start, end) in enumerate(d_label, start=1):
-                # 为每个维度生成列名，注意 range 是包含起始索引，不包含结束索引+1
                 for dim in range(start, end + 1):
                     columns.append(f'x{i}_dim{dim - start + 1}')
             return pd.DataFrame(combined_data, columns=columns),d_label
@@ -284,7 +283,7 @@ def generate_data_from_graph(graph, num_samples=500, trail=10000):
             f_i, num_params = random.choice(functions)
             g_i, gnum_params = random.choice(distortions)
 
-            # 根据参数数量调用函数
+
             if num_params == 2:
                 if gnum_params==2:
                     data[:, node] = g_i(f_i(parent_data, nPA) + noise,np.random.randint(1,4))
