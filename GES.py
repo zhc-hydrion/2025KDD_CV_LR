@@ -512,9 +512,7 @@ def local_score_cv_discrete_nym(
             second_part = np.trace((np.eye(mx) - n1 * beta * Wr) @ (
                     Vr - 2 / (n1 * var_lambda) * etidf @ Ur + 1 / ((n1 * var_lambda) ** 2) * etidf @ Sr @ etidf.T))
 
-            # note that the coef 2 is still ignore!!!!!!!
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + nv*n1*np.log(gamma) + second_part/gamma) / 2  /T/T
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + second_part/gamma) / 2
+
             CV = CV + (nv * nv * np.log(2 * np.pi) + nv * first_part + second_part / gamma) / 2
 
         CV = CV / k
@@ -566,16 +564,12 @@ def local_score_cv_discrete_nym(
             vp = Vr @ Pr
             second_part = np.trace(Vr - 1 / (n1 * gamma) * vp + (1 / (n1 * gamma) ** 2) * vp @ Dr @ Pr)
 
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + nv*n1*np.log(gamma) + second_part/gamma) / 2  /T/T
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + second_part/gamma) / 2
+
             CV = CV + (nv * nv * np.log(2 * np.pi) + nv * first_part + second_part / gamma) / 2
 
         CV = CV / k
 
     score = CV  # negative cross-validated likelihood
-    # print(f'mx:{mx}')
-    # if mpa is not None:
-    #     print(f'mpa:{mpa}')
     return score
 
 
@@ -703,9 +697,7 @@ def local_score_cv_general_nym(
             second_part = np.trace((np.eye(mx) - n1 * beta * Wr) @ (
                     Vr - 2 / (n1 * var_lambda) * etidf @ Ur + 1 / ((n1 * var_lambda) ** 2) * etidf @ Sr @ etidf.T))
 
-            # note that the coef 2 is still ignore!!!!!!!
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + nv*n1*np.log(gamma) + second_part/gamma) / 2  /T/T
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + second_part/gamma) / 2
+
             CV = CV + (nv * nv * np.log(2 * np.pi) + nv * first_part + second_part / gamma) / 2
 
         CV = CV / k
@@ -749,14 +741,11 @@ def local_score_cv_general_nym(
             vp = Vr @ Pr
             second_part = np.trace(Vr - 1 / (n1 * gamma) * vp + (1 / (n1 * gamma) ** 2) * vp @ Dr @ Pr)
 
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + nv*n1*np.log(gamma) + second_part/gamma) / 2  /T/T
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + second_part/gamma) / 2
+
             CV = CV + (nv * nv * np.log(2 * np.pi) + nv * first_part + second_part / gamma) / 2
 
         CV = CV / k
-    # print(f'mx:{mx}')
-    # if mpa is not None:
-    #     print(f'mpa:{mpa}')
+
 
     score = CV  # negative cross-validated likelihood
     return score
@@ -917,9 +906,7 @@ def local_score_cv_multi_nym(
             second_part = np.trace((np.eye(mx) - n1 * beta * Wr) @ (
                     Vr - 2 / (n1 * var_lambda) * etidf @ Ur + 1 / ((n1 * var_lambda) ** 2) * etidf @ Sr @ etidf.T))
 
-            # note that the coef 2 is still ignore!!!!!!!
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + nv*n1*np.log(gamma) + second_part/gamma) / 2  /T/T
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + second_part/gamma) / 2
+
             CV = CV + (nv * nv * np.log(2 * np.pi) + nv * first_part + second_part / gamma) / 2
 
         CV = CV / k
@@ -962,8 +949,7 @@ def local_score_cv_multi_nym(
             vp = Vr @ Pr
             second_part = np.trace(Vr - 1 / (n1 * gamma) * vp + (1 / (n1 * gamma) ** 2) * vp @ Dr @ Pr)
 
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + nv*n1*np.log(gamma) + second_part/gamma) / 2  /T/T
-            # CV = CV + (nv * nv * np.log(2 * np.pi) + 2*nv * first_part + second_part/gamma) / 2
+
             CV = CV + (nv * nv * np.log(2 * np.pi) + nv * first_part + second_part / gamma) / 2
 
         CV = CV / k
