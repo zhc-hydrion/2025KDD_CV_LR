@@ -17,6 +17,7 @@ To use this project, simply run the following command:
 
 ```sh
 python main.py
-、、、
 
+
+## Publication
 This work has been accepted by KDD25 August
